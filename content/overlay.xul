@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="less://komodo/skin/global/global.less" type="text/css"?>
+<?xml-stylesheet href="less://factif/skin/less.less" type="text/css"?>
+<overlay id="less" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/x-javascript" src="chrome://factif/content/overlay.js" />
+
+	<!--<commandset id="allcommands">
+		<command id="Tasks:LessCompileFile" oncommand="extensions.factif.autoComplete();"/>
+	</commandset>-->
+
+</overlay>
+

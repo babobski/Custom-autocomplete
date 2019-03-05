@@ -1,0 +1,6 @@
+content factif content/
+overlay chrome://komodo/content/komodo.xul chrome://factif/content/overlay.xul
+overlay chrome://komodo/content/commandsOverlay.xul chrome://factif/content/commandsOverlay.xul
+skin factif classic/1.0 skin/
+component {3ab2c9b9-93c9-486f-9dad-37a8dbade57f} components/factif_autocomplete.js
+contract @mozilla.org/autocomplete/search;1?name=factif-autocomplete {3ab2c9b9-93c9-486f-9dad-37a8dbade57f}

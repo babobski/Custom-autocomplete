@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<overlay id="factifCommandOverlay"
+		 xmlns:html="http://www.w3.org/1999/xhtml"
+		 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+		 
+	 <broadcasterset id="broadcasterset_global">
+		<broadcaster
+		id="cmd_auto_complete"
+		key="key_cmd_auto_complete"
+		desc="Factif: Comment Auto Complete"
+		oncommand="extensions.factif.autoComplete();"/>
+	 </broadcasterset>
+
+</overlay> 
+ 
+
