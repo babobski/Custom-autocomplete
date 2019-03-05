@@ -3,7 +3,7 @@
 	 xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 	<Description about="urn:mozilla:install-manifest">
 		<em:unpack>true</em:unpack>
-		<em:id>factif@komodoeditide.com</em:id>
+		<em:id>factif@babobski.com</em:id>
 		<em:name>Factif</em:name>
 		<em:version>1.0.0</em:version>
 		<em:description>Factif (personal addon)</em:description>

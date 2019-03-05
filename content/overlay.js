@@ -35,11 +35,31 @@ if (typeof(extensions.factif) === 'undefined') extensions.factif = {
 
 		if (input.length > 0) {
 			var val = input.value(),
-				valLength = val.length;
+				valLength = val.length,
+				snippet = null;
 
 			if (valLength > 0) {
-				scimoz.insertText(scimoz.currentPos, val);
-				scimoz.gotoPos(scimoz.currentPos + valLength  - (valLength > 13 ? 4 : 0));
+				switch (val) {
+					case '<!-- BEGIN -->':
+						snippet = ko.abbrev.findAbbrevSnippet('BEGIN', 'HTML', 'HTML');
+						break;
+					case '<!-- IF -->':
+						snippet = ko.abbrev.findAbbrevSnippet('IF', 'HTML', 'HTML');
+						break;
+					case '<!-- INCLUDE -->':
+						snippet = ko.abbrev.findAbbrevSnippet('INCLUDE', 'HTML', 'HTML');
+						break;
+					case '<!-- ELSEIF -->':
+						snippet = ko.abbrev.findAbbrevSnippet('ELSEIF', 'HTML', 'HTML');
+						break;
+					default:
+						scimoz.insertText(scimoz.currentPos, val);
+						scimoz.gotoPos(scimoz.currentPos + valLength  - (valLength > 13 ? 4 : 0));
+						break;
+				}
+				if (snippet !== null) {
+					ko.abbrev.insertAbbrevSnippet(snippet);
+				}
 			}
 			input.parent().remove();
 			ko.views.manager.currentView.setFocus();
