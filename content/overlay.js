@@ -1,11 +1,9 @@
-xtk.load('chrome://less/content/helper.js');
-
 /**
  * Namespaces
  */
 if (typeof(extensions) === 'undefined') extensions = {};
 if (typeof(extensions.factif) === 'undefined') extensions.factif = {
-	version: '1.0.0'
+	version: '1.0.1'
 };
 (function() {
 	var notify = require("notify/notify"),
@@ -52,9 +50,22 @@ if (typeof(extensions.factif) === 'undefined') extensions.factif = {
 					case '<!-- ELSEIF -->':
 						snippet = ko.abbrev.findAbbrevSnippet('ELSEIF', 'HTML', 'HTML');
 						break;
+					case '<!-- ISFACTIF -->':
+						snippet = ko.abbrev.findAbbrevSnippet('ISFACTIF', 'HTML', 'HTML');
+						break;
 					default:
 						scimoz.insertText(scimoz.currentPos, val);
 						scimoz.gotoPos(scimoz.currentPos + valLength  - (valLength > 13 ? 4 : 0));
+                        ko.views.manager.currentView.setFocus();
+                        
+                        setTimeout(function(){
+                            if (scimoz.lineFromPosition(scimoz.currentPos) > currentLine) {
+                                scimoz.homeExtend();
+                                scimoz.charLeftExtend();
+                                scimoz.replaceSel('');
+                            }
+                            
+                        }, 50);
 						break;
 				}
 				if (snippet !== null) {
@@ -62,16 +73,6 @@ if (typeof(extensions.factif) === 'undefined') extensions.factif = {
 				}
 			}
 			input.parent().remove();
-			ko.views.manager.currentView.setFocus();
-			
-			setTimeout(function(){
-				if (scimoz.lineFromPosition(scimoz.currentPos) > currentLine) {
-					scimoz.homeExtend();
-					scimoz.charLeftExtend();
-					scimoz.replaceSel('');
-				}
-				
-			}, 50);
 		}
 	}
 
@@ -105,6 +106,7 @@ if (typeof(extensions.factif) === 'undefined') extensions.factif = {
 			{"value": "<!-- ENDIF -->"},
 			{"value": "<!-- IF -->"},
 			{"value": "<!-- INCLUDE -->"},
+			{"value": "<!-- ISFACTIF -->"},
 		]);
 	}
 
